@@ -3,7 +3,6 @@
 /**
  * pall - prints all values on the stack, starting from the top
  * @stack: double pointer to the stack
- * @line_number: line number of intruction
  */
 
 void pall(stack_t **stack)
