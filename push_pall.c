@@ -9,9 +9,13 @@
 
 void push(stack_t **stack, unsigned int line_number, char *arg)
 {
+	if (stack == NULL)
+		return;
+
 	if (is_integer(arg) == -1)
 	{
 		printf("L%u: usage: push integer\n", line_number);
+		free_list(stack);
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -33,6 +37,9 @@ void push(stack_t **stack, unsigned int line_number, char *arg)
 void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
+
+	if (*stack == NULL)
+		return;
 
 	(void)line_number;
 	while (temp != NULL)
