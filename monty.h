@@ -51,6 +51,7 @@ int add_nodebeg(stack_t **stack, int n);
 /* task functions */
 void push(stack_t **stack, unsigned int line_number, char *arg);
 void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 
 
 
