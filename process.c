@@ -29,6 +29,8 @@ void process(const char *filename)
 		token = strtok(line, " \t\a\n\r;:");
 		while (token != NULL)
 		{
+			if (token[0] == '#')
+				continue;
 			if (check_push == 1)
 			{
 				push(&stack, line_number, token);

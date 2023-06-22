@@ -53,6 +53,7 @@ int add_nodebeg(stack_t **stack, int n);
 /* print functions */
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
 
 /* task functions */
 void push(stack_t **stack, unsigned int line_number, char *arg);
