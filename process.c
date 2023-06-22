@@ -74,6 +74,12 @@ void cleanup(stack_t **stack, char *line, FILE *file)
 	fclose(file);
 }
 
+/**
+ * errormessage - prints error message
+ * @line_number: ====
+ * @token: ====
+ */
+
 void errormessage(unsigned int line_number, char *token)
 {
 	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, token);
