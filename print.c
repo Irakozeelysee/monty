@@ -51,7 +51,7 @@ void pstr(stack_t **stack, unsigned int line_number)
 
 	(void) line_number;
 	if (*stack == NULL)
-		return;
+		putchar('\n');
 
 	while ((current != NULL) && (current->n != 0) &&
 	      (current->n >= 0) && (current->n <= 127))
