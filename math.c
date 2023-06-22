@@ -61,7 +61,7 @@ void sub(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * m_div - monty_div divides the two top elements in the stack
+ * m_div - divides the two top elements in the stack
  * @stack: the pointer to the head of the stack
  * @line_number: the line number
  * Description: it divides the top 2 elements in the list
@@ -95,7 +95,7 @@ void m_div(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * m_mul - multiplication counterpart of the math.c functions
+ * m_mul - multiples counterpart of the math.c functions
  * @stack: pointer to the head of the list
  * @line_number: the bytecode line number
  */

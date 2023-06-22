@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * pint - print the value at the top of the stack
+ * pint - prints the value at the top of the stack
  * @stack: pointer to the head of the list
  * @line_number: bytcode line number
  */

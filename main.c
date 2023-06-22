@@ -2,7 +2,7 @@
 
 /**
  * main - the entry point
- * @argc: the argument count
+ * @argc: this counts arguments
  * @argv: the argument vector
  * Return: on success it returns 0
  */

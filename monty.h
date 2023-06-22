@@ -14,7 +14,6 @@
  * @n: integer
  * @prev: points to the previous element of the stack (or queue)
  * @next: points to the next element of the stack (or queue)
- *
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
@@ -74,4 +73,4 @@ void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
 
 
-#endif /* MONTY_J */
+#endif /* MONTY_H */

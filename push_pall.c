@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * push - adds a node to the top of the stack
+ * push - adds an element to the top of the stack
  * @stack: pointer to the head of the list
  * @line_number: the line_number
  * @arg: the integer

@@ -4,7 +4,7 @@
  * add_nodebeg -  adds a node to the beginning of a doubly linked list
  * @stack: pointer to the head of the list
  * @n: integer value to be added
- * Return: 0 on success
+ * Return: nothing. 
  */
 
 int add_nodebeg(stack_t **stack, int n)
@@ -52,7 +52,7 @@ void free_list(stack_t **stack)
  * del_nodebeg - deletes a node at the start of the list
  * as corresponds with the LIFO(last in first out) of a stack
  * meaning the last element of the list is the first element of the stack
- * @stack: pointer to the head of the list
+ * @stack: pointer to the top of the list
  */
 
 void del_nodebeg(stack_t **stack)
