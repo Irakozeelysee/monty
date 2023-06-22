@@ -61,9 +61,12 @@ void sub(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * m_div - divides the two top elements in the stack
+ * m_div - monty_div divides the two top elements in the stack
  * @stack: the pointer to the head of the stack
  * @line_number: the line number
+ * Description: it divides the top 2 elements in the list
+ * if there are less than 2 elements it returns an error
+ * if the top value is 0 it returns an error
  */
 
 void m_div(stack_t **stack, unsigned int line_number)
@@ -85,6 +88,64 @@ void m_div(stack_t **stack, unsigned int line_number)
 	}
 
 	second->n /= top->n;
+
+	*stack = second;
+	free(top);
+	(*stack)->prev = NULL;
+}
+
+/**
+ * m_mul - multiplication counterpart of the math.c functions
+ * @stack: pointer to the head of the list
+ * @line_number: the bytecode line number
+ */
+
+void m_mul(stack_t **stack, unsigned int line_number)
+{
+	stack_t *top, *second;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	top = *stack;
+	second = top->next;
+
+	second->n *= top->n;
+
+	*stack = second;
+	free(top);
+	(*stack)->prev = NULL;
+}
+
+/**
+ * m_mod - modulus counterpart of the math.c functions
+ * @stack: pointer to the head of the list
+ * @line_number: bytecode line number
+ * Description: works like the m_div function
+ */
+
+void m_mod(stack_t **stack, unsigned int line_number)
+{
+	stack_t *top, *second;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't mod, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	top = *stack;
+	second = top->next;
+
+	if (top->n == 0)
+	{
+		fprintf(stderr, "L%u: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	second->n %= top->n;
 
 	*stack = second;
 	free(top);
