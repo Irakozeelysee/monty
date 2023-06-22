@@ -4,7 +4,7 @@
  * add_nodebeg -  adds a node to the beginning of a doubly linked list
  * @stack: pointer to the head of the list
  * @n: integer value to be added
- * Return: nothing. 
+ * Return: nothing.
  */
 
 int add_nodebeg(stack_t **stack, int n)
