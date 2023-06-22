@@ -30,7 +30,10 @@ void process(const char *filename)
 		while (token != NULL)
 		{
 			if (token[0] == '#')
+			{
+				token = strtok(NULL, " \t\a\n\r;:");
 				continue;
+			}
 			if (check_push == 1)
 			{
 				push(&stack, line_number, token);

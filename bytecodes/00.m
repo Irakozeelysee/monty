@@ -1,4 +1,5 @@
-push 1a
-push 2
+#this is a comment
+#thisisanother
+pish 2
 push 3
 pall
