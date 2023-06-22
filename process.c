@@ -2,6 +2,7 @@
 #include "monty.h"
 
 void cleanup(stack_t **stack, char *line, FILE *file);
+void errormessage(unsigned int line_number, char *token);
 
 /**
  * process - process the code to be passed to the main function
@@ -20,7 +21,7 @@ void process(const char *filename)
 	file = fopen(filename, "r");
 	if (file == NULL)
 	{
-		printf("Error: Can't open file %s\n", filename);
+		fprintf(stderr, "Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
 	while ((num_read = getline(&line, &len, file)) != -1)
@@ -49,9 +50,7 @@ void process(const char *filename)
 				else
 				{
 					free_list(&stack);
-					printf("L%u: unkown instructions %s\n",
-							line_number, token);
-					exit(EXIT_FAILURE);
+					errormessage(line_number, token);
 				}
 			}
 			line_number++;
@@ -73,4 +72,10 @@ void cleanup(stack_t **stack, char *line, FILE *file)
 	free_list(stack);
 	free(line);
 	fclose(file);
+}
+
+void errormessage(unsigned int line_number, char *token)
+{
+	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, token);
+	exit(EXIT_FAILURE);
 }

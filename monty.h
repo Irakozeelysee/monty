@@ -1,8 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-#define _NO_SIGNAL_H 1
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -43,6 +41,7 @@ typedef struct instruction_s
 void process(const char *filename);
 void (*get_opcodes(char *token))(stack_t **stack, unsigned int line_number);
 void cleanup(stack_t **stack, char *line, FILE *file);
+void errormessage(unsigned int line_number, char *token);
 
 /* doubly linked list functions */
 void del_nodebeg(stack_t **stack);

@@ -13,14 +13,14 @@ void push(stack_t **stack, unsigned int line_number, char *arg)
 
 	if (arg == NULL)
 	{
-		printf("L%u: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free_list(stack);
 		exit(EXIT_FAILURE);
 	}
 	num = atoi(arg);
 	if (num == 0 && strcmp(arg, "0") != 0)
 	{
-		printf("L%u: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free_list(stack);
 		exit(EXIT_FAILURE);
 	}
