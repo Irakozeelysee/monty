@@ -59,3 +59,34 @@ void sub(stack_t **stack, unsigned int line_number)
 	free(top);
 	(*stack)->prev = NULL;
 }
+
+/**
+ * m_div - divides the two top elements in the stack
+ * @stack: the pointer to the head of the stack
+ * @line_number: the line number
+ */
+
+void m_div(stack_t **stack, unsigned int line_number)
+{
+	stack_t *top, *second;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	top = *stack;
+	second = top->next;
+
+	if (top->n == 0)
+	{
+		fprintf(stderr, "L%u: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	second->n /= top->n;
+
+	*stack = second;
+	free(top);
+	(*stack)->prev = NULL;
+}

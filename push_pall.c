@@ -6,10 +6,9 @@
  * @line_number: the line_number
  * @arg: the integer
  */
-
 void push(stack_t **stack, unsigned int line_number, char *arg)
 {
-	int num;
+	int num, i;
 
 	if (arg == NULL)
 	{
@@ -17,13 +16,22 @@ void push(stack_t **stack, unsigned int line_number, char *arg)
 		free_list(stack);
 		exit(EXIT_FAILURE);
 	}
-	num = atoi(arg);
-	if (num == 0 && strcmp(arg, "0") != 0)
+
+	for (i = 0; arg[i] != '\0'; i++)
 	{
-		fprintf(stderr, "L%u: usage: push integer\n", line_number);
-		free_list(stack);
-		exit(EXIT_FAILURE);
+		if (i == 0 && (arg[i] == '+' || arg[i] == '-'))
+			continue;
+
+		if (!isdigit(arg[i]))
+		{
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
+			free_list(stack);
+			exit(EXIT_FAILURE);
+		}
 	}
+
+	num = atoi(arg);
+
 	if (add_nodebeg(stack, num) == -1)
 	{
 		free_list(stack);

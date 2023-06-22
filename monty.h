@@ -6,6 +6,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <ctype.h>
 
 
 /**
@@ -42,6 +43,7 @@ void process(const char *filename);
 void (*get_opcodes(char *token))(stack_t **stack, unsigned int line_number);
 void cleanup(stack_t **stack, char *line, FILE *file);
 void errormessage(unsigned int line_number, char *token);
+int is_integer(char *n);
 
 /* doubly linked list functions */
 void del_nodebeg(stack_t **stack);
@@ -61,6 +63,7 @@ void nop(stack_t **stack, unsigned int line_number);
 /* math functions */
 void add(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
+void m_div(stack_t **stack, unsigned int line_number);
 
 
 
