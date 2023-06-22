@@ -48,6 +48,12 @@ void swap(stack_t **stack, unsigned int line_number)
 	*stack = second;
 }
 
+/**
+ * nop - does nothing
+ * @stack: ===
+ * @line_number: ====
+ */
+
 void nop(stack_t **stack, unsigned int line_number)
 {
 	(void) stack;
